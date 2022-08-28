@@ -1,0 +1,26 @@
+{
+  "amqp": {
+    "connection": {
+      "hostname": "localhost",
+      "protocol": "amqp",
+      "port": 5672,
+      "username": "guest",
+      "password": "guest"
+    },
+    "queues": {
+      "evidence-transformer-v1": {
+        "name": "evidence-transformer-v1",
+        "prefetchCount": 20
+      }
+    }
+  },
+  "parsing-configs": {
+    "evidence-transformer-v1": {
+      "id": "{{toString(user_details.id)}}",
+      "full name": "{{user_details.first_name}} {{user_details.last_name}}",
+      "email": "{{user_details.email}}",
+      "updated at": "{{user_details.updated_at}}",
+      "MFA enabled": "{{capitalize(toString(security.mfa_enabled))}}"
+    }
+  }
+}

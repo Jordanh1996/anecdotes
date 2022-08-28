@@ -1,0 +1,1 @@
+docker-compose -f docker-compose.yml --project-directory . --project-name anecdotes up -d

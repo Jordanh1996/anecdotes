@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  rabbitmqCi:
+    image: rabbitmq:3.7.15-management-alpine
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test:
+        - "CMD"
+        - "rabbitmqctl"
+        - "status"
+      interval: 2s
+      timeout: 10s
+      retries: 20
+      
+networks:
+  app:
+    driver: bridge
